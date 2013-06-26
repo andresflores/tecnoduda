@@ -1,0 +1,24 @@
+<%= form_for(@question) do |f| %>
+  <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% @question.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <center><div class="field">
+            <h1>Nueva Pregunta</h1>
+            <input type="hidden" name="question[subject_id]" value="<%= @subject_id %>" />
+            
+            <%= f.text_field :query %>
+          </div>
+         <div class="actions">
+            <button class="btn btn-large btn-primary" type="submit"><%= f.submit %></button>
+
+          </div></center>
+<% end %>

@@ -1,0 +1,47 @@
+<h1>Listado de Preguntas</h1>
+
+
+<center><table class="table">
+              <thead>
+                  <tr>
+                      <th>Pregunta</th>                      
+                      <th>Usuario </th>                    
+                      <th>Materia</th>
+                      <th></th>
+                                            
+                    </tr>
+              </thead>
+              <tbody>
+                <% @questions.each do |question| %>
+                
+                  <tr class ="info">
+
+                    <td><%= question.query %></td>
+                    <td><%= question.user.email unless question.user.nil? %></td>
+                    <td><%= question.subject.name.html_safe %></td>
+                    
+
+                    <td><%= link_to 'Show', question %></td>
+                    <td><%= link_to 'Edit', edit_question_path(question) %></td>
+                    <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <td>
+                          <a href="/answers/new?question_id=<%= question.id %>">Responder</a>
+                    </td>
+                    
+                  </tr>
+               
+                <% end %>
+              </tbody>
+  </table></center>
+
+
+
+
+
+<br />
+
+<td>
+  <button class="btn btn-large btn-primary" type="submit"><%= link_to 'Nueva Pregunta', new_question_path %></button>
+</td>
+
+

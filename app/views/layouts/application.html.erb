@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TecnoDuda</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+<link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+
+
+    body{
+           background-color: red;
+       
+
+      }
+    #tecno
+    {
+         background-color: red;
+         width:700px; height:150px;
+    }
+    #todo
+    {
+         background-color: #EFFBFB;
+         width:900px; height:650px;
+    }
+
+    p{
+       background-color: #E6E6E6; 
+       color: blue; 
+     }
+  #fondo
+    {
+         background-color: red;
+         
+    }
+ 
+
+  </style>
+
+
+
+</head>
+<body>
+
+<CENTER> <div id = "todo" class="span12 offset1">
+
+
+
+<div   class="row-fluid" >
+      <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p> 
+
+    <div id = "tecno"class="span12 ">
+      <%= image_tag('td.jpg')  %>
+    </div>
+
+    <div class="span2">
+      <div class="img-polaroid">
+          <%= image_tag('user.jpg')  %>
+      </div>
+
+          <div  class="btn-group">
+            <a class="btn btn-primary" href="#"><i class="icon-user icon-white"></i> User</a>
+            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              
+              <li class="divider"></li>
+              
+
+              <li><%= link_to 'Cerrar sesion', destroy_user_session_path, :method => :delete %></li>
+
+            </ul>
+          </div>
+
+
+    </div>
+        <div class="navbar navbar-inverse">
+           <div  class="navbar-inner">
+            <a class="brand"></a>
+            <ul class="nav">
+            <li><%= link_to strongify('Hacer Pregunta'), root_url %></li>
+            <li><%= link_to 'Mis preguntas', questions_path(:user => true)%></li>
+            <li><%= link_to 'Preguntas', questions_path %></li>
+            <li><%= link_to 'Materias', subjects_path(:user =>true) %></li>
+            <li><%= link_to 'Carreras', user_careers_path %></li>
+            
+          </ul>
+        </div>
+
+        <%=yield%>
+
+
+    </div>
+
+
+</div>
+</div></CENTER>
+<br>
+<br>
+
+
+</body>
+</html>
